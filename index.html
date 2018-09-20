@@ -25,6 +25,12 @@
           <input type="radio" id="default" name="flashtype" value=1 checked> Primary/Secondary Colors<br>
           <input type="radio" id="strobe" name="flashtype" value=2> Strobe Light<br>
         </form>
+        <br>
+        <form action="">
+          <input type="radio" id="one" name="flashtype" value=1> 1 Hz<br>
+          <input type="radio" id="five" name="flashtype" value=5> 5 Hz<br>
+          <input type="radio" id="ten" name="flashtype" value=10 checked> 10 Hz<br>
+        </form>
         <button class="btn btn-lg btn-warning" onclick="startColor()">Begin</button>
         <button class="btn btn-lg btn-info" onclick="stopColor()">Stop</button>
     </div>
@@ -37,18 +43,28 @@
     
     var flash;
     var flashtype;
-    var hertz = 10;
+    var hertz;
     
     var startColor = function() {
         flash = true;
+        if (document.getElementById("one").checked) {
+            hertz = 1;
+        }
+        else if (document.getElementById("five").checked) {
+          hertz = 5;
+        }
+        else {
+          hertz = 10;
+        }
         color(0);
     }
     var stopColor = function() {
       flash = false;
       document.getElementById("colorMe").style.background = "white";
+      clearTimeout(repeater);
     }
-    var color = function(i) {
-        setTimeout(function(){
+    var color = function(i, j) {
+        /*global repeater*/ repeater = setTimeout(function(){
             if(flash == true) {
                 if (document.getElementById("default").checked) {
                     flashtype = document.getElementById("default").value;
