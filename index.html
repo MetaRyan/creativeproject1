@@ -21,14 +21,24 @@
             </ul>
           </div>
         </nav>
+        <form action="">
+          <input type="radio" id="default" name="flashtype" value=1 checked> Primary/Secondary Colors<br>
+          <input type="radio" id="strobe" name="flashtype" value=2> Strobe Light<br>
+        </form>
         <button class="btn btn-lg btn-warning" onclick="startColor()">Begin</button>
         <button class="btn btn-lg btn-info" onclick="stopColor()">Stop</button>
     </div>
   </body>
   
   <script>
-    var myColors = ["blue","red","green","yellow","purple","orange"]
+    var defaultColors = ["blue","red","green","yellow","purple","orange"];
+    var strobeColors = ["black","white"];
+    
+    
     var flash;
+    var flashtype;
+    var hertz = 10;
+    
     var startColor = function() {
         flash = true;
         color(0);
@@ -40,6 +50,20 @@
     var color = function(i) {
         setTimeout(function(){
             if(flash == true) {
+                if (document.getElementById("default").checked) {
+                    flashtype = document.getElementById("default").value;
+                }
+                else {
+                  flashtype = document.getElementById("strobe").value;
+                }
+                var myColors;
+                if (flashtype == 1) {
+                  myColors = defaultColors;
+                }
+                else {
+                  myColors = strobeColors;
+                }
+                
                 document.getElementById("colorMe").style.background = myColors[i];
                 if(i < myColors.length-1) {
                   i++;
@@ -48,7 +72,7 @@
                 }
                 color(i);
             }
-        }, 100);
+        }, (1000/hertz));//milliseconds
     }
 
   </script>
