@@ -21,27 +21,25 @@
             </ul>
           </div>
         </nav>
-        <button class="btn btn-lg btn-warning" onclick="start()">Begin</button>
-        <button class="btn btn-lg btn-info" onclick="stop()">Stop</button>
+        <button class="btn btn-lg btn-warning" onclick="startColor()">Begin</button>
+        <button class="btn btn-lg btn-info" onclick="stopColor()">Stop</button>
     </div>
   </body>
   
   <script>
-    var flash;
     var myColors = ["blue","red","green","yellow","purple","orange"]
-    var start = function() {
+    var flash;
+    var startColor = function() {
         flash = true;
         color(0);
     }
-    var stop = function() {
+    var stopColor = function() {
       flash = false;
-      setTimeout(function(){
-        document.getElementById("colorMe").style.background = "white";
-      }, 100);
+      document.getElementById("colorMe").style.background = "white";
     }
     var color = function(i) {
-        if(flash == true) {
-            setTimeout(function(){
+        setTimeout(function(){
+            if(flash == true) {
                 document.getElementById("colorMe").style.background = myColors[i];
                 if(i < myColors.length-1) {
                   i++;
@@ -49,8 +47,8 @@
                   i = 0;
                 }
                 color(i);
-            }, 100);
-        }
+            }
+        }, 100);
     }
 
   </script>
