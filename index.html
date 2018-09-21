@@ -21,21 +21,29 @@
             </ul>
           </div>
         </nav>
-        <p>WARNING: This site produces flashing lights that might hurt your eyes.</p>
-        <p>Please don't use this site if you have medical issues involving flashing lights.</p>
-        <h6>Color Pattern</h6>
-        <form action="">
-          <input type="radio" id="default" name="flashtype" value=1 checked> Primary/Secondary Colors<br>
-          <input type="radio" id="strobe" name="flashtype" value=2> Strobe Light<br>
-        </form>
-        <h6>Frequency</h6>
-        <form action="">
-          <input type="radio" id="one" name="flashtype" value=1> 1 Hz<br>
-          <input type="radio" id="five" name="flashtype" value=5> 5 Hz<br>
-          <input type="radio" id="ten" name="flashtype" value=10 checked> 10 Hz<br>
-        </form>
-        <button class="btn btn-lg btn-warning" onclick="startColor()">Begin</button>
-        <button class="btn btn-lg btn-info" onclick="stopColor()">Stop</button>
+        <h1>WARNING: This site produces flashing lights that might hurt your eyes.</h1>
+        <h2 style="text-align: center;">Please don't use this site if you have medical issues involving flashing lights.</h2>
+        <br><br>
+        <div class="row">
+          <div class="col-md-5"></div>
+          <div class="col-md-3">
+            <h6>Color Pattern</h6>
+            <form action="">
+              <input type="radio" id="default" name="flashtype" value=1 checked> Primary/Secondary Colors<br>
+              <input type="radio" id="strobe" name="flashtype" value=2> Strobe Light<br>
+            </form>
+            <h6>Frequency</h6>
+            <form action="">
+              <input type="radio" id="one" name="flashtype" value=1> 1 Hz<br>
+              <input type="radio" id="five" name="flashtype" value=5> 5 Hz<br>
+              <input type="radio" id="ten" name="flashtype" value=10 checked> 10 Hz<br>
+            </form>
+            <br>
+            <button class="btn btn-lg btn-warning" onclick="startColor()">Begin</button>
+            <button class="btn btn-lg btn-info" onclick="stopColor()">Stop</button>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
     </div>
   </body>
   
