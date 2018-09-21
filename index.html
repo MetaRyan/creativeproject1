@@ -23,11 +23,12 @@
         </nav>
         <button class="btn btn-lg btn-warning" onclick="startColor()">Begin</button>
         <button class="btn btn-lg btn-info" onclick="stopColor()">Stop</button>
+        <!--<p id="test">white</p>-->
     </div>
   </body>
   
   <script>
-    var myColors = ["blue","red","green","yellow","purple","orange"]
+    var myColors = ["blue","red","green","yellow","purple"]
     var flash;
     var startColor = function() {
         flash = true;
@@ -41,6 +42,7 @@
         setTimeout(function(){
             if(flash == true) {
                 document.getElementById("colorMe").style.background = myColors[i];
+                // document.getElementById("test").innerHTML = myColors[i];
                 if(i < myColors.length-1) {
                   i++;
                 } else {
@@ -50,6 +52,5 @@
             }
         }, 100);
     }
-
   </script>
 </html>
